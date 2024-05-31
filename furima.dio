@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="H9YzMOYoDhHfS0lajZFN" name="ページ1">
-        <mxGraphModel dx="1207" dy="569" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1915" dy="569" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -44,7 +44,7 @@
                         <mxPoint x="350" y="270" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="13" value="配送先（adress）" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                <mxCell id="13" value="配送先（adresses）" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
                     <mxGeometry x="540" y="345" width="250" height="210" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="name: (string型、 NOTNULL)&#10;address_line1:( string型、NOTNULL)&#10;address_line2  string型、NOTNULL)        &#10;city  : (string型、NOTNULLz9&#10;state : (string型、NOTNULL)              &#10;country :(string型、NOTNULL)&#10;zip  (string型、NOTNULL )       &#10;phone_number :(string型、NOTNULL)&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="13">

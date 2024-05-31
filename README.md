@@ -38,7 +38,7 @@ has_one :adress
 belongs_to :user
 has_one :purchase
 
-# addressテーブル
+# addressesテーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | name               | string     | null: false,                   |
