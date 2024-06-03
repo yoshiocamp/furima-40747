@@ -13,9 +13,8 @@
 | encrypted_password | string     | null: false,                   |
 | birth              | date       | null: false,                   |
 
-has_many :detail
+has_many :details
 has_many :items
-has_many :histories
 
 # detailsテーブル
 
@@ -24,9 +23,9 @@ has_many :histories
 | user         | references | null: false, foreign_key: true |
 | item         | references | null: false, foreign_key: true |
 
-belongs_to :user
 belongs_to :item
 has_one :address
+
 
 # itemsテーブル
 
@@ -46,21 +45,16 @@ has_one :address
 belongs_to :user
 has_one :detail
 
-
-
-belongs_to :user
-has_one :address
-
 # addressesテーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| postal-code        | string     | null: false,                   |
-| prefecture         | string     | null: false,                   |
+| postal_code        | string     | null: false,                   |
+| prefecture_id      | string     | null: false,                   |
 | city               | string     | null: false,                   |
 | addresses          | string     | null: false,                   |
-| building           | string     | null: false,                   |
+| building           | string     |                  |
 | phone_number       | string     | null: false,                   |
 | user               | references | null: false, foreign_key: true |
-| details            | references | null: false, foreign_key: true |
+| detail            | references | null: false, foreign_key: true |
 
 belongs_to :detail
