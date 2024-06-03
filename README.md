@@ -13,7 +13,7 @@
 | encrypted_password | string     | null: false,                   |
 | birth              | date       | null: false,                   |
 
-has_many :details
+has_many :detail
 has_many :items
 has_many :histories
 
@@ -36,21 +36,17 @@ has_one :address
 | description   | text       | null: false,                   |
 | price         | integer    | null: false,                   |
 | user          | references | null: false, foreign_key: true |
-| categore_id   | integer    | null: false,                   |
+| category_id   | integer    | null: false,                   |
 | status_id     | integer    | null: false,                   |
 | fee_id        | integer    | null: false,                   |
 | prefecture_id | integer    | null: false,                   |
 | delivery_id   | integer    | null: false,                   |
-| profit        | integer    | null: false,                   |
+
 
 belongs_to :user
 has_one :detail
 
-# historiesテーブル
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| user               | references | null: false, foreign_key: true |
-| detail             | references | null: false, foreign_key: true |
+
 
 belongs_to :user
 has_one :address
@@ -58,13 +54,13 @@ has_one :address
 # addressesテーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| name               | string     | null: false,                   |
-| house_number       | string     | null: false,                   |
-| unit               | string     | null: false,                   |
+| postal-code        | string     | null: false,                   |
+| prefecture         | string     | null: false,                   |
 | city               | string     | null: false,                   |
-| zip                | string     | null: false,                   |
+| addresses          | string     | null: false,                   |
+| building           | string     | null: false,                   |
 | phone_number       | string     | null: false,                   |
 | user               | references | null: false, foreign_key: true |
 | details            | references | null: false, foreign_key: true |
 
-belongs_to :history
+belongs_to :detail
