@@ -24,6 +24,7 @@ has_many :items
 | item         | references | null: false, foreign_key: true |
 
 belongs_to :item
+belongs_to :user
 has_one :address
 
 
@@ -52,9 +53,8 @@ has_one :detail
 | prefecture_id      | string     | null: false,                   |
 | city               | string     | null: false,                   |
 | addresses          | string     | null: false,                   |
-| building           | string     |                  |
+| building           | string     |                                |
 | phone_number       | string     | null: false,                   |
-| user               | references | null: false, foreign_key: true |
-| detail            | references | null: false, foreign_key: true |
+| detail             | references | null: false, foreign_key: true |
 
 belongs_to :detail
