@@ -13,10 +13,11 @@
 | encrypted_password | string     | null: false,                   |
 | birth              | date       | null: false,                   |
 
-has_many :purchases
+has_many :details
 has_many :items
+has_many :histories
 
-# purchasesテーブル
+# detailsテーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
@@ -29,17 +30,30 @@ has_one :address
 
 # itemsテーブル
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| name         | string     | null: false,                   |
-| description  | text       | null: false,                   |
-| price        | integer    | null: false,                   |
-| user         | references | null: false, foreign_key: true |
-| genre_id     | integer    | null: false,                   |
-| profit       | integer    | null: false,                   |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| name          | string     | null: false,                   |
+| description   | text       | null: false,                   |
+| price         | integer    | null: false,                   |
+| user          | references | null: false, foreign_key: true |
+| categore_id   | integer    | null: false,                   |
+| status_id     | integer    | null: false,                   |
+| fee_id        | integer    | null: false,                   |
+| prefecture_id | integer    | null: false,                   |
+| delivery_id   | integer    | null: false,                   |
+| profit        | integer    | null: false,                   |
 
 belongs_to :user
-has_one :purchas
+has_one :detail
+
+# historiesテーブル
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| user               | references | null: false, foreign_key: true |
+| detail             | references | null: false, foreign_key: true |
+
+belongs_to :user
+has_one :address
 
 # addressesテーブル
 | Column             | Type       | Options                        |
@@ -51,6 +65,6 @@ has_one :purchas
 | zip                | string     | null: false,                   |
 | phone_number       | string     | null: false,                   |
 | user               | references | null: false, foreign_key: true |
-| purchas            | references | null: false, foreign_key: true |
+| details            | references | null: false, foreign_key: true |
 
-belongs_to :item
+belongs_to :history
