@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2024_05_30_081455) do
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
-    t.string "email", null: false
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "first_name", null: false
     t.string "first_name_kana", null: false
