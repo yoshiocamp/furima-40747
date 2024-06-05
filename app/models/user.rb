@@ -7,10 +7,9 @@ class User < ApplicationRecord
         #  validates_presence_of :nickname, :email, :password, :first_name, :last_name, :first_name_kana, :last_name_kana, :birth
 
         validates :nickname, presence: true
-        validates :email, presence: true
         validates :password, presence: true
-        validates :first_name, presence: true,format: { with: /\A[ぁ-んァ-ン一-龥々]+\z/, message: "は全角（漢字・ひらがな・カタカナ）で入力してください" }
-        validates :last_name, presence: true,format: { with: /\A[ぁ-んァ-ン一-龥々]+\z/, message: "は全角（漢字・ひらがな・カタカナ）で入力してください" }
+        validates :first_name, presence: true,format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: "は全角（漢字・ひらがな・カタカナ）で入力してください" }
+        validates :last_name, presence: true,format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: "は全角（漢字・ひらがな・カタカナ）で入力してください" }
         validates :first_name_kana, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: "は全角カタカナで入力してください" }
         validates :last_name_kana, presence: true,  format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: "は全角カタカナで入力してください" }
         validates :birth, presence: true
