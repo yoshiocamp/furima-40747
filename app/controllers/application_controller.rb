@@ -1,17 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-def new
-end
 
-def create
-  @user = User.new(user_params)
-  if @user.save
-    redirect_to root_path
-  else
-    render 'new'
-  end
-end
+
 
 
 
@@ -23,4 +15,8 @@ end
     end
   end
 
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :password, :first_name, :first_name_kana, :last_name, :last_name_kana, :birth])
+  
+  end
 end
