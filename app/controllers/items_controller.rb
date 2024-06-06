@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   private
 
   def message_params
