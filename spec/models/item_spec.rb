@@ -50,31 +50,31 @@ RSpec.describe Item, type: :model do
     end
     
     it 'category_idが空だと出品できない' do
-      @item.category_id = ''
+      @item.category_id = '1'
       @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
     end
 
     it 'delivery_idが空だと出品できない' do
-      @item.delivery_id = ''
+      @item.delivery_id = '1'
       @item.valid?
         expect(@item.errors.full_messages).to include("Delivery can't be blank")
     end
 
     it 'fee_idが空だと出品できない' do
-      @item.fee_id = ''
+      @item.fee_id = '1'
       @item.valid?
         expect(@item.errors.full_messages).to include("Fee can't be blank")
     end
 
     it 'prefecture_idが空だと出品できない' do
-      @item.prefecture_id = ''
+      @item.prefecture_id = '1'
       @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
     end
 
     it 'status_idが空だと出品できない' do
-      @item.status_id = ''
+      @item.status_id = '1'
       @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
     end
@@ -83,6 +83,11 @@ RSpec.describe Item, type: :model do
       @item.image = nil
       @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
+    end
+    it 'userが紐付いていないと保存できない' do
+      @item.user = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include('User must exist')
     end
   end
  end
