@@ -12,7 +12,8 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/ , message: "は半角（数字）で入力してください"},numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'は¥300~¥9,999,999の間で設定してください' }
+  validates :price, presence: true, numericality: { only_integer: true, message: "は半角（数字）で入力してください"}
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'は¥300~¥9,999,999の間で設定してください' }
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" } 
   validates :delivery_id, numericality: { other_than: 1, message: "can't be blank" } 
   validates :fee_id, numericality: { other_than: 1, message: "can't be blank" } 
@@ -20,4 +21,8 @@ class Item < ApplicationRecord
   validates :status_id, numericality: { other_than: 1, message: "can't be blank" } 
   validates :image, presence: true
  
+  
+
+ 
+
 end
