@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only:[:new, :edit]
+  before_action :authenticate_user!, only:[:new, :edit, :destroy ]
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_item,only:[:edit, :update, :show]
+  before_action :set_item,only:[:edit, :update, :show, :destroy]
   def index
     @items = Item.all.order("created_at DESC")
   end
@@ -37,6 +37,13 @@ class ItemsController < ApplicationController
   def show
     @user = @item.user
     @detail = @item.detail
+  end
+
+  def destroy
+    if current_user == @item.user
+      @item.destroy
+    end
+    redirect_to root_path
   end
 
 
