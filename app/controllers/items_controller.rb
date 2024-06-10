@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only:[:new, :edit]
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  before_action :set_item,only:[:edit, :update]
   def index
     @items = Item.all.order("created_at DESC")
   end
@@ -21,16 +21,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     unless current_user.id == @item.user.id
       redirect_to root_path
     end
   end
 
   def update
-    @item = Item.find(params[:id])
-    
-   
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -53,3 +49,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :price, :category_id, :delivery_id, :fee_id, :prefecture_id, :status_id, :image).merge(user_id: current_user.id)
   end
 end
+
+def set_item
+  @item = Item.find(params[:id])
+ end
