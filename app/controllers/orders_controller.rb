@@ -1,7 +1,7 @@
 class DetailsController < ApplicationController
 
   def index
-    @detail = @item.detail
+    @item_adress = ItemAddress.new
   end
 
 end
