@@ -35,6 +35,7 @@ class クラス名
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'は¥300~¥9,999,999の間で設定してください' }
   end
   def save
-    # 各テーブルにデータを保存する処理を書く
+    item = Item.create(name: name, price:price, category_id:category_id, delivery_id:delivery_id, fee_id:fee_id, prefecture_id:prefecture_id, status_id:status_id, image:image, user_id:user_id)
+    Address.create(postal_code:postal_code, city:city, addresses:addresses, phone_number, item_id: item.id)
   end
 end
