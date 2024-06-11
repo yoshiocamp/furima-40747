@@ -1,4 +1,4 @@
-class Adress < ApplicationRecord
+class Address < ApplicationRecord
   belongs_to :detail
   belongs_to :prefecture
 
