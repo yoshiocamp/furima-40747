@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-  belongs_to :detail
+  belongs_to :order
   belongs_to :prefecture
 
   validates :name, presence: true
