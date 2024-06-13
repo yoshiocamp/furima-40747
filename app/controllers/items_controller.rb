@@ -21,9 +21,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless current_user.id == @item.user.id
+    current_user.id != @item.user.id || @item.order.present?
       redirect_to root_path
-    end
+    
   end
 
   def update
@@ -54,8 +54,9 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :description, :price, :category_id, :delivery_id, :fee_id, :prefecture_id, :status_id, :image).merge(user_id: current_user.id)
   end
-end
 
-def set_item
-  @item = Item.find(params[:id])
- end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+end  

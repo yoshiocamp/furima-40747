@@ -10,10 +10,10 @@ class OrderAddress
   # validates :phone_number, presence: true
 
   with_options presence: true do
-    validates :postal_code
+    validates :postal_code,format: {with: /\A\d{3}-\d{4}\z/}
     validates :city
     validates :addresses
-    validates :phone_number
+    validates :phone_number, numericality: { only_integer: true, message: "は半角（数字）で入力してください"}, length: { within: 10..11 , message: "は10桁以上11桁以内で入力してください" }
     validates :user_id
     validates :item_id
   end
