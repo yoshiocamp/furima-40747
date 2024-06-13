@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
 
   def show
     @user = @item.user
-    @detail = @item.detail
+    @order = @item.order
   end
 
   def destroy
