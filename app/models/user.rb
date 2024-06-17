@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
          has_many :items
          has_many :orders
-        #  validates_presence_of :nickname, :email, :password, :first_name, :last_name, :first_name_kana, :last_name_kana, :birth
+       
 
         validates :nickname, presence: true
         validates :first_name, presence: true,format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: "は全角（漢字・ひらがな・カタカナ）で入力してください" }
