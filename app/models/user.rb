@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :items
-         has_many :details
-        #  validates_presence_of :nickname, :email, :password, :first_name, :last_name, :first_name_kana, :last_name_kana, :birth
+         has_many :orders
+       
 
         validates :nickname, presence: true
         validates :first_name, presence: true,format: { with: /\A[ぁ-んァ-ヶ一-龥々]+\z/, message: "は全角（漢字・ひらがな・カタカナ）で入力してください" }
@@ -17,4 +17,4 @@ class User < ApplicationRecord
   
          PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i
 validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
-end
+end 

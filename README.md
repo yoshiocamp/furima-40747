@@ -13,10 +13,10 @@
 | encrypted_password | string     | null: false,                   |
 | birth              | date       | null: false,                   |
 
-has_many :details
+has_many :orders
 has_many :items
 
-# detailsテーブル
+# ordersテーブル
 
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
@@ -44,17 +44,17 @@ has_one :address
 
 
 belongs_to :user
-has_one :detail
+has_one :order
 
 # addressesテーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | postal_code        | string     | null: false,                   |
-| prefecture_id      | string     | null: false,                   |
+| prefecture_id      | integer    | null: false,                   |
 | city               | string     | null: false,                   |
 | addresses          | string     | null: false,                   |
 | building           | string     |                                |
 | phone_number       | string     | null: false,                   |
-| detail             | references | null: false, foreign_key: true |
+| order              | references | null: false, foreign_key: true |
 
-belongs_to :detail
+belongs_to :order
