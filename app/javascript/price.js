@@ -3,8 +3,9 @@ const price = () => {
  priceInput.addEventListener("input", () => {
   let inputValue = priceInput.value;
   const addTaxDom = document.getElementById("add-tax-price");
-  addTaxDom.innerHTML = (Math.floor(inputValue * 0.1));
-  let profitNumber = inputValue * 0.9
+  let roundedTax = Math.floor(inputValue * 0.1);
+  addTaxDom.innerHTML = roundedTax;
+  let profitNumber = inputValue  - roundedTax;
   const profitDom = document.getElementById("profit");
   profitDom.innerHTML = (Math.floor(profitNumber));
  })
